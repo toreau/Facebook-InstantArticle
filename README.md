@@ -70,6 +70,32 @@ external API are subject to change in upcoming releases, so use with care.
 
     say $ia->to_string;
 
+# METHODS
+
+## add\_lead\_asset\_image
+
+## add\_lead\_asset\_video
+
+## add\_author
+
+## add\_paragraph
+
+## add\_image
+
+## add\_video
+
+## add\_slideshow
+
+## add\_credit
+
+## add\_copyright
+
+## add\_list
+
+## add\_blockquote
+
+## to\_string
+
 # AUTHOR
 
 Tore Aursand <toreau@gmail.com>
