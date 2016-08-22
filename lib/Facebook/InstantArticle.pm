@@ -13,7 +13,7 @@ use Facebook::InstantArticle::Figure::Video;
 use Facebook::InstantArticle::List;
 use Facebook::InstantArticle::Paragraph;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 =encoding utf-8
 
