@@ -168,6 +168,12 @@ Adds a blockquote to the article.
 
     $ia->add_blockquote( 'This is blockquoted.' );
 
+## add\_embed
+
+Adds an embed to the article.
+
+    $ia->add_embed( 'code' );
+
 ## to\_string
 
 Generates the instant article and returns it as a string.
