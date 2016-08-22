@@ -74,27 +74,103 @@ external API are subject to change in upcoming releases, so use with care.
 
 ## add\_lead\_asset\_image
 
+Adds a lead asset image to the article.
+
+    $ia->add_lead_asset_image(
+        source  => 'http://www.example.com/lead_image.png',
+        caption => 'Something wicked this way comes...',
+    );
+
 ## add\_lead\_asset\_video
+
+Adds a lead asset video to the article.
+
+    $ia->add_lead_asset_video(
+        source  => 'http://www.example.com/lead_video.mp4',
+        caption => 'Something wicked this way comes...',
+    );
 
 ## add\_author
 
+Adds an author to the article.
+
+    $ia->add_author(
+        name => 'Oscar Wilde',
+    );
+
 ## add\_paragraph
+
+Adds a paragraph to the article.
+
+    $ia->add_paragraph( 'This is a paragraph' );
 
 ## add\_image
 
+Adds an image to the article.
+
+    $ia->add_image(
+        source  => 'http://www.example.com/image.png',
+        caption => 'Some caption...',
+    );
+
 ## add\_video
+
+Adds a video to the article.
+
+    $ia->add_video(
+        source  => 'http://www.example.com/video.mp4',
+        caption => 'Some caption...',
+    );
 
 ## add\_slideshow
 
+Adds a Facebook::InstantArticle::Slideshow object to the article.
+
+    my $ss = Facebook::InstantArticle::Slideshow->new;
+
+    $ss->add_image(
+        source  => 'http://www.example.com/image_01.png',
+        caption => 'Image #1',
+    );
+
+    $ss->add_image(
+        source  => 'http://www.example.com/image_02.png',
+        caption => 'Image #2',
+    );
+
+    $ia->add_slideshow( $ss );
+
 ## add\_credit
+
+Adds a credit to the article.
+
+    $ia->add_credit( 'Thanks for helping me write this article, someone!' );
 
 ## add\_copyright
 
+Adds a copyright to the article.
+
+    $ia->add_copyright( 'Copyright 2016, Fubar Inc.' );
+
 ## add\_list
+
+Adds a Facebook::InstantArticle::List object to the article.
+
+    my $list = Facebook::InstantArticle::List->new(
+        elements => [ 'Element #1', 'Element #2', 'Element #3' ],
+    );
+
+    $ia->add_list( $list );
 
 ## add\_blockquote
 
+Adds a blockquote to the article.
+
+    $ia->add_blockquote( 'This is blockquoted.' );
+
 ## to\_string
+
+Generates the instant article and returns it as a string.
 
 # AUTHOR
 
