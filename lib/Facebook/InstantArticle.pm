@@ -7,12 +7,13 @@ use XML::Generator;
 use Facebook::InstantArticle::Author;
 use Facebook::InstantArticle::Blockquote;
 use Facebook::InstantArticle::Copyright;
+use Facebook::InstantArticle::Embed;
 use Facebook::InstantArticle::Figure::Image;
 use Facebook::InstantArticle::Figure::Video;
 use Facebook::InstantArticle::List;
 use Facebook::InstantArticle::Paragraph;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 =encoding utf-8
 
@@ -290,6 +291,20 @@ sub add_blockquote {
     my $self = shift;
 
     push( @{$self->_body_elements}, Facebook::InstantArticle::Blockquote->new(@_) );
+}
+
+=head2 add_embed
+
+Adds an embed to the article.
+
+    $ia->add_embed( 'code' );
+
+=cut
+
+sub add_embed {
+    my $self = shift;
+
+    push( @{$self->_body_elements}, Facebook::InstantArticle::Embed->new(@_) );
 }
 
 =head2 to_string

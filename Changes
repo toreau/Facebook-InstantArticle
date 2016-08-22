@@ -1,4 +1,7 @@
 Revision history for Facebook-InstantArticle
 
-0.01    2016-08-19
+0.02    2016-08-22
+        - Added 'add_embed'.
+
+0.01    2016-08-22
         - Initial relase.
