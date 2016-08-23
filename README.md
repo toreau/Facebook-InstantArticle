@@ -174,6 +174,15 @@ Adds an embed to the article.
 
     $ia->add_embed( 'code' );
 
+## add\_heading
+
+Adds a heading to the article BODY.
+
+    $ia->add_heading(
+        level => 1,
+        text  => 'Heading',
+    );
+
 ## to\_string
 
 Generates the instant article and returns it as a string.

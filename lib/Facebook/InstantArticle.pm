@@ -10,6 +10,7 @@ use Facebook::InstantArticle::Copyright;
 use Facebook::InstantArticle::Embed;
 use Facebook::InstantArticle::Figure::Image;
 use Facebook::InstantArticle::Figure::Video;
+use Facebook::InstantArticle::Heading;
 use Facebook::InstantArticle::List;
 use Facebook::InstantArticle::Paragraph;
 
@@ -305,6 +306,23 @@ sub add_embed {
     my $self = shift;
 
     push( @{$self->_body_elements}, Facebook::InstantArticle::Embed->new(@_) );
+}
+
+=head2 add_heading
+
+Adds a heading to the article BODY.
+
+    $ia->add_heading(
+        level => 1,
+        text  => 'Heading',
+    );
+
+=cut
+
+sub add_heading {
+    my $self = shift;
+
+    push( @{$self->_body_elements}, Facebook::InstantArticle::Heading->new(@_) );
 }
 
 =head2 to_string
