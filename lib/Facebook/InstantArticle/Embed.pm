@@ -7,8 +7,29 @@ extends 'Facebook::InstantArticle::BaseElement';
 has 'content' => (
     isa => 'Str',
     is => 'rw',
-    required => 1,
+    required => 0,
     default => '',
+);
+
+has 'source' => (
+    isa => 'Str',
+    is => 'rw',
+    required => 0,
+    default => '',
+);
+
+has 'width' => (
+    isa => 'Int',
+    is => 'rw',
+    required => 0,
+    default => 0,
+);
+
+has 'height' => (
+    isa => 'Int',
+    is => 'rw',
+    required => 0,
+    default => 0,
 );
 
 around BUILDARGS => sub {
@@ -35,9 +56,15 @@ sub _build_as_xml_gen {
 
     my $gen = XML::Generator->new( ':pretty' );
 
+    my %attrs = ();
+    $attrs{ src } = $self->source if ( length $self->source );
+    $attrs{ width } = $self->width if ( $self->width );
+    $attrs{ height } = $self->height if ( $self->height );
+
     return $gen->figure(
         { class => 'op-interactive' },
         $gen->iframe(
+            ( keys %attrs ? \%attrs : undef ),
             \$self->content,
         ),
     );

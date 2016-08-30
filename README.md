@@ -183,6 +183,15 @@ Adds a heading to the article BODY.
         text  => 'Heading',
     );
 
+## add\_map
+
+Adds a map to the article BODY.
+
+    $ia->add_heading(
+        latitude  => 56.1341342,
+        longitude => 23.253474,
+    );
+
 ## to\_string
 
 Generates the instant article and returns it as a string.

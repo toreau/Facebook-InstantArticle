@@ -12,9 +12,10 @@ use Facebook::InstantArticle::Figure::Image;
 use Facebook::InstantArticle::Figure::Video;
 use Facebook::InstantArticle::Heading;
 use Facebook::InstantArticle::List;
+use Facebook::InstantArticle::Map;
 use Facebook::InstantArticle::Paragraph;
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 =encoding utf-8
 
@@ -323,6 +324,23 @@ sub add_heading {
     my $self = shift;
 
     push( @{$self->_body_elements}, Facebook::InstantArticle::Heading->new(@_) );
+}
+
+=head2 add_map
+
+Adds a map to the article BODY.
+
+    $ia->add_heading(
+        latitude  => 56.1341342,
+        longitude => 23.253474,
+    );
+
+=cut
+
+sub add_map {
+    my $self = shift;
+
+    push( @{$self->_body_elements}, Facebook::InstantArticle::Map->new(@_) );
 }
 
 =head2 to_string

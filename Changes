@@ -1,5 +1,9 @@
 Revision history for Facebook-InstantArticle
 
+0.05    2016-08-30
+        - Added 'add_map'.
+        - Improved 'add_embed'.
+
 0.04    2016-08-23
         - Added 'add_heading'.
 
