@@ -192,6 +192,10 @@ Adds a map to the article BODY.
         longitude => 23.253474,
     );
 
+## add\_analytics
+
+Adds an analytics iframe to the article body.
+
 ## to\_string
 
 Generates the instant article and returns it as a string.
