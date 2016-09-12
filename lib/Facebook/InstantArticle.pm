@@ -4,6 +4,7 @@ use namespace::autoclean;
 
 use XML::Generator;
 
+use Facebook::InstantArticle::Analytics;
 use Facebook::InstantArticle::Author;
 use Facebook::InstantArticle::Blockquote;
 use Facebook::InstantArticle::Copyright;
@@ -15,7 +16,7 @@ use Facebook::InstantArticle::List;
 use Facebook::InstantArticle::Map;
 use Facebook::InstantArticle::Paragraph;
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 =encoding utf-8
 
@@ -341,6 +342,18 @@ sub add_map {
     my $self = shift;
 
     push( @{$self->_body_elements}, Facebook::InstantArticle::Map->new(@_) );
+}
+
+=head2 add_analytics
+
+Adds an analytics iframe to the article body.
+
+=cut
+
+sub add_analytics {
+    my $self = shift;
+
+    push( @{$self->_body_elements}, Facebook::InstantArticle::Analytics->new(@_) );
 }
 
 =head2 to_string
