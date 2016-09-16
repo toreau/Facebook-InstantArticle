@@ -1,5 +1,8 @@
 Revision history for Facebook-InstantArticle
 
+0.07    2016-09-16
+        - Allow automatic ad placement meta setting.
+
 0.06    2016-09-12
         - Added 'add_analytics'.
 

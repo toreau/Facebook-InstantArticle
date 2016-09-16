@@ -19,14 +19,15 @@ external API are subject to change in upcoming releases, so use with care.
     my $now = DateTime->now,
 
     my $ia = Facebook::InstantArticle->new(
-        language    => 'en',
-        url         => 'http://www.example.com/2016/08/17/some-article',
-        title       => 'Some title',
-        subtitle    => 'Got one?',
-        kicker      => 'Nobody needs a kicker, but...',
-        description => 'Usually the ingress of the article',
-        published   => "$now",
-        modified    => "$now",
+        language          => 'en',
+        url               => 'http://www.example.com/2016/08/17/some-article',
+        title             => 'Some title',
+        subtitle          => 'Got one?',
+        kicker            => 'Nobody needs a kicker, but...',
+        description       => 'Usually the ingress of the article',
+        published         => "$now",
+        modified          => "$now",
+        auto_ad_placement => 0, # defaults to true
     );
 
     $ia->add_author(

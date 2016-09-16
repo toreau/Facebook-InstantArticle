@@ -16,7 +16,7 @@ use Facebook::InstantArticle::List;
 use Facebook::InstantArticle::Map;
 use Facebook::InstantArticle::Paragraph;
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 =encoding utf-8
 
@@ -41,14 +41,15 @@ external API are subject to change in upcoming releases, so use with care.
   my $now = DateTime->now,
 
   my $ia = Facebook::InstantArticle->new(
-      language    => 'en',
-      url         => 'http://www.example.com/2016/08/17/some-article',
-      title       => 'Some title',
-      subtitle    => 'Got one?',
-      kicker      => 'Nobody needs a kicker, but...',
-      description => 'Usually the ingress of the article',
-      published   => "$now",
-      modified    => "$now",
+      language          => 'en',
+      url               => 'http://www.example.com/2016/08/17/some-article',
+      title             => 'Some title',
+      subtitle          => 'Got one?',
+      kicker            => 'Nobody needs a kicker, but...',
+      description       => 'Usually the ingress of the article',
+      published         => "$now",
+      modified          => "$now",
+      auto_ad_placement => 0, # defaults to true
   );
 
   $ia->add_author(
@@ -94,15 +95,16 @@ external API are subject to change in upcoming releases, so use with care.
 
 =cut
 
-has 'language'    => ( isa => 'Str', is => 'rw', required => 1 );
-has 'url'         => ( isa => 'Str', is => 'rw', required => 1 );
-has 'title'       => ( isa => 'Str', is => 'rw', required => 1 );
-has 'subtitle'    => ( isa => 'Str', is => 'rw', required => 0 );
-has 'kicker'      => ( isa => 'Str', is => 'rw', required => 0 );
-has 'description' => ( isa => 'Str', is => 'rw', required => 0 );
-has 'published'   => ( isa => 'Str', is => 'rw', required => 1 );
-has 'modified'    => ( isa => 'Str', is => 'rw', required => 1 );
-has 'style'       => ( isa => 'Str', is => 'rw', required => 0 );
+has 'language'          => ( isa => 'Str',  is => 'rw', required => 1 );
+has 'url'               => ( isa => 'Str',  is => 'rw', required => 1 );
+has 'title'             => ( isa => 'Str',  is => 'rw', required => 1 );
+has 'subtitle'          => ( isa => 'Str',  is => 'rw', required => 0 );
+has 'kicker'            => ( isa => 'Str',  is => 'rw', required => 0 );
+has 'description'       => ( isa => 'Str',  is => 'rw', required => 0 );
+has 'published'         => ( isa => 'Str',  is => 'rw', required => 1 );
+has 'modified'          => ( isa => 'Str',  is => 'rw', required => 1 );
+has 'style'             => ( isa => 'Str',  is => 'rw', required => 0 );
+has 'auto_ad_placement' => ( isa => 'Bool', is => 'rw', required => 0, default => 1 );
 
 has '_header_elements' => ( isa => 'ArrayRef[Object]', is => 'ro', default => sub { [] } );
 has '_body_elements'   => ( isa => 'ArrayRef[Object]', is => 'ro', default => sub { [] } );
@@ -376,6 +378,7 @@ sub to_string {
             $gen->meta( { charset => 'utf-8' } ),
             $gen->meta( { property => 'op:markup_version', version => 'v1.0' } ),
             $gen->meta( { property => 'fb:likes_and_comments', content => 'enable' } ),
+            $gen->meta( { property => 'fb:use_automatic_ad_placement', content => ($self->auto_ad_placement ? 'true' : 'false') } ),
             ( length $self->style ? $gen->meta( { property => 'fb:article_style', content => $self->style } ) : undef ),
             $gen->link( { rel => 'canonical', href => $self->url } ),
         ),
