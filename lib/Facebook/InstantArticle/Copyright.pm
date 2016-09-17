@@ -30,7 +30,7 @@ has 'is_valid' => (
     default => sub {
         my $self = shift;
 
-        return length $self->text;
+        return length $self->text ? 1 : 0;
     },
 );
 

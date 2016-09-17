@@ -18,7 +18,7 @@ has 'is_valid' => (
     default => sub {
         my $self = shift;
 
-        return length $self->name;
+        return length $self->name ? 1 : 0;
     },
 );
 

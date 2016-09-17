@@ -16,7 +16,7 @@ use Facebook::InstantArticle::List;
 use Facebook::InstantArticle::Map;
 use Facebook::InstantArticle::Paragraph;
 
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 
 =encoding utf-8
 
@@ -174,7 +174,11 @@ Adds a paragraph to the article.
 sub add_paragraph {
     my $self = shift;
 
-    push( @{$self->_body_elements}, Facebook::InstantArticle::Paragraph->new(@_) );
+    my $p = Facebook::InstantArticle::Paragraph->new( @_ );
+
+    if ( $p->is_valid ) {
+        push( @{$self->_body_elements}, $p );
+    }
 }
 
 =head2 add_image

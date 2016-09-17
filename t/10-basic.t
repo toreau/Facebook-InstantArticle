@@ -44,6 +44,7 @@ $ia->add_slideshow( $slideshow );
 
 $ia->add_paragraph( 'This is a paragraph...' );
 $ia->add_paragraph( '...and another paragraph!' );
+$ia->add_paragraph( '' );
 
 $ia->add_video(
     source => 'video.mpg',
@@ -69,6 +70,7 @@ is( $dom->find('html > head > meta')->[0]->attr('charset'), 'utf-8', 'Meta chars
 is( $dom->find('html > head > meta')->[1]->attr('property'), 'op:markup_version', 'Meta markup version property is OK' );
 is( $dom->find('html > head > meta')->[1]->attr('version'), 'v1.0', 'Meta markup version value is OK' );
 is( $dom->at('html > head > link')->attr('href'), 'http://www.example.com/2016/08/17/some-article', 'Canonical URL is OK' );
+is( $dom->find( 'article > p' )->size, 2, 'Number of paragraphs is OK' );
 
 $dom = $dom->at( 'html > body > article' );
 

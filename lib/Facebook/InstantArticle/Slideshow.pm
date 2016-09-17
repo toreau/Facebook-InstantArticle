@@ -27,7 +27,7 @@ has 'is_valid' => (
     default => sub {
         my $self = shift;
 
-        return scalar( @{$self->_images} );
+        return scalar( @{$self->_images} ) ? 1 : 0;
     },
 );
 

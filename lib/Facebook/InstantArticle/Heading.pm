@@ -25,7 +25,7 @@ has 'is_valid' => (
     default => sub {
         my $self = shift;
 
-        return length $self->text && $self->level > 1 && $self->level < 7;
+        return (length $self->text && $self->level > 1 && $self->level < 7) ? 1 :0;
     },
 );
 

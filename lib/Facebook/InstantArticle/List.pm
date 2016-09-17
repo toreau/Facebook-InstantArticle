@@ -25,7 +25,7 @@ has 'is_valid' => (
     default => sub {
         my $self = shift;
 
-        return scalar @{ $self->_elements };
+        return scalar @{ $self->_elements } ? 1 : 0;
     },
 );
 
