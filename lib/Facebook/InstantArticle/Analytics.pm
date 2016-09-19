@@ -18,6 +18,17 @@ has 'content' => (
     default => '',
 );
 
+has 'is_valid' => (
+    isa => 'Bool',
+    is => 'ro',
+    lazy => 1,
+    default => sub {
+        my $self = shift;
+
+        return ( length $self->source || length $self->content ) ? 1 : 0;
+    },
+);
+
 has 'as_xml_gen' => (
     isa => 'Object',
     is => 'ro',

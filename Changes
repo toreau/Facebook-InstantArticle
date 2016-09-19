@@ -1,5 +1,11 @@
 Revision history for Facebook-InstantArticle
 
+0.09    2016-09-19
+        - Better validation when adding elements to the article; Mojo::Log is
+          used for spitting out warnings when appropriate.
+        - Improved tests.
+        - Improved documentation.
+
 0.08    2016-09-17
         - Ignore empty paragraphs.
         - Corrected validation logic, but still no overall validation.
@@ -25,4 +31,4 @@ Revision history for Facebook-InstantArticle
         - Added 'add_embed'.
 
 0.01    2016-08-22
-        - Initial relase.
+        - Initial release.

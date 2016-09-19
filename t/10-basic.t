@@ -47,10 +47,10 @@ $ia->add_paragraph( '...and another paragraph!' );
 $ia->add_paragraph( '' );
 
 $ia->add_video(
-    source => 'video.mpg',
+    source          => 'http://www.example.com/video.mpg',
     enable_comments => 1,
-    enable_likes => 1,
-    presentation => 'aspect-fit',
+    enable_likes    => 1,
+    presentation    => 'aspect-fit',
 );
 
 $ia->add_list(
@@ -58,6 +58,15 @@ $ia->add_list(
 );
 
 $ia->add_blockquote( 'Blocked out!' );
+
+$ia->add_embed(
+    source => 'http://www.example.com/embed.js',
+);
+
+$ia->add_map(
+    latitude  => 56.1341342,
+    longitude => 23.253474,
+);
 
 $ia->add_credit( 'Tore Aursand' );
 $ia->add_copyright( 'Tore Aursand' );

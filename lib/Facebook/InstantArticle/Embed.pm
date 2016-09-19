@@ -44,6 +44,17 @@ around BUILDARGS => sub {
     }
 };
 
+has 'is_valid' => (
+    isa => 'Bool',
+    is => 'ro',
+    lazy => 1,
+    default => sub {
+        my $self = shift;
+
+        return ( length $self->content || length $self->source ) ? 1 : 0;
+    },
+);
+
 has 'as_xml_gen' => (
     isa => 'Object',
     is => 'ro',

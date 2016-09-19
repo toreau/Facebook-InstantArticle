@@ -15,9 +15,13 @@ has '_images' => (
 sub add_image {
     my $self = shift;
 
-    my $image = Facebook::InstantArticle::Figure::Image->new( @_ );
+    if ( my $e = Facebook::InstantArticle::Figure::Image->new(@_) ) {
+        if ( $e->is_valid ) {
+            return push( @{$self->_images}, $e );
+        }
+    }
 
-    push( @{$self->_images}, $image );
+    $self->_log->warn( 'Failed to add image to slideshow!' );
 }
 
 has 'is_valid' => (

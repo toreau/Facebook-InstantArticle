@@ -5,8 +5,8 @@ markup.
 
 # DESCRIPTION
 
-Facebook::InstantArticle is a simple helper class for generating Facebook
-Instant Articles markup.
+Facebook::InstantArticle is a simple helper class for generating [Facebook
+Instant Articles markup](https://developers.facebook.com/docs/instant-articles/reference).
 
 At the moment it doesn't support all of the features, and both the internal and
 external API are subject to change in upcoming releases, so use with care.
@@ -188,7 +188,7 @@ Adds a heading to the article BODY.
 
 Adds a map to the article BODY.
 
-    $ia->add_heading(
+    $ia->add_map(
         latitude  => 56.1341342,
         longitude => 23.253474,
     );
@@ -211,5 +211,5 @@ Copyright 2016- Tore Aursand
 
 # LICENSE
 
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+This library is free software; you can redistribute it and/or modify it under
+the same terms as Perl itself.

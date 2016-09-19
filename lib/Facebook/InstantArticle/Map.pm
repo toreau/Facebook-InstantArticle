@@ -12,17 +12,28 @@ has 'type' => (
 );
 
 has 'latitude' => (
-    isa => 'Num',
+    isa => 'Maybe[Num]',
     is => 'rw',
     required => 1,
-    default => 0.0,
+    default => 0,
 );
 
 has 'longitude' => (
-    isa => 'Num',
+    isa => 'Maybe[Num]',
     is => 'rw',
     required => 1,
-    default => 0.0,
+    default => 0,
+);
+
+has 'is_valid' => (
+    isa => 'Bool',
+    is => 'ro',
+    lazy => 1,
+    default => sub {
+        my $self = shift;
+
+        return ( defined $self->latitude && defined $self->longitude ) ? 1 : 0;
+    },
 );
 
 has 'as_xml_gen' => (
