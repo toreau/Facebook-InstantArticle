@@ -17,7 +17,7 @@ use Facebook::InstantArticle::List;
 use Facebook::InstantArticle::Map;
 use Facebook::InstantArticle::Paragraph;
 
-our $VERSION = '0.09';
+our $VERSION = '0.10';
 
 =encoding utf-8
 
