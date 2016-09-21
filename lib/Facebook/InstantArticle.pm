@@ -17,7 +17,7 @@ use Facebook::InstantArticle::List;
 use Facebook::InstantArticle::Map;
 use Facebook::InstantArticle::Paragraph;
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 =encoding utf-8
 
@@ -325,11 +325,10 @@ sub add_copyright {
 
 Adds a Facebook::InstantArticle::List object to the article.
 
-    my $list = Facebook::InstantArticle::List->new(
-        elements => [ 'Element #1', 'Element #2', 'Element #3' ],
+    $ia->add_list(
+        ordered  => 1, # default 0
+        elements => [ 'Element #1', 'Element #2', 'Element 3' ],
     );
-
-    $ia->add_list( $list );
 
 =cut
 

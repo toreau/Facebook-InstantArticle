@@ -157,11 +157,10 @@ Adds a copyright to the article.
 
 Adds a Facebook::InstantArticle::List object to the article.
 
-    my $list = Facebook::InstantArticle::List->new(
-        elements => [ 'Element #1', 'Element #2', 'Element #3' ],
+    $ia->add_list(
+        ordered  => 1, # default 0
+        elements => [ 'Element #1', 'Element #2', 'Element 3' ],
     );
-
-    $ia->add_list( $list );
 
 ## add\_blockquote
 
