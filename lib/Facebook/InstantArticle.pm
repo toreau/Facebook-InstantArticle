@@ -17,7 +17,7 @@ use Facebook::InstantArticle::List;
 use Facebook::InstantArticle::Map;
 use Facebook::InstantArticle::Paragraph;
 
-our $VERSION = '0.11';
+our $VERSION = '0.12';
 
 =encoding utf-8
 
@@ -47,7 +47,6 @@ external API are subject to change in upcoming releases, so use with care.
       title             => 'Some title',
       subtitle          => 'Got one?',
       kicker            => 'Nobody needs a kicker, but...',
-      description       => 'Usually the ingress of the article',
       published         => "$now",
       modified          => "$now",
       auto_ad_placement => 0, # defaults to true
@@ -101,7 +100,6 @@ has 'url'               => ( isa => 'Str',  is => 'rw', required => 1 );
 has 'title'             => ( isa => 'Str',  is => 'rw', required => 1 );
 has 'subtitle'          => ( isa => 'Str',  is => 'rw', required => 0 );
 has 'kicker'            => ( isa => 'Str',  is => 'rw', required => 0 );
-has 'description'       => ( isa => 'Str',  is => 'rw', required => 0 );
 has 'published'         => ( isa => 'Str',  is => 'rw', required => 1 );
 has 'modified'          => ( isa => 'Str',  is => 'rw', required => 1 );
 has 'style'             => ( isa => 'Str',  is => 'rw', required => 0 );
@@ -479,7 +477,6 @@ sub to_string {
                     $gen->h1( $self->title ),
                     ( length $self->subtitle ? $gen->h2($self->subtitle) : undef ),
                     ( length $self->kicker ? $gen->h3({ class => 'op-kicker' }, $self->kicker) : undef ),
-                    ( length $self->description ? $gen->p(\$self->description) : undef ),
                     $gen->time( { class => 'op-published', datetime => $self->published } ),
                     $gen->time( { class => 'op-modified', datetime => $self->modified } ),
                     ( @{$self->_header_elements} ? map { $_->as_xml_gen } @{$self->_header_elements} : undef ),
@@ -506,7 +503,7 @@ Tore Aursand E<lt>toreau@gmail.comE<gt>
 
 =head1 COPYRIGHT
 
-Copyright 2016- Tore Aursand
+Copyright 2016 - Tore Aursand
 
 =head1 LICENSE
 

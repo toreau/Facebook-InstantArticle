@@ -14,14 +14,13 @@ use Facebook::InstantArticle::Slideshow;
 my $now = DateTime->now;
 
 my $ia = Facebook::InstantArticle->new(
-    language    => 'en',
-    url         => 'http://www.example.com/2016/08/17/some-article',
-    title       => 'Some title',
-    subtitle    => 'Got one?',
-    kicker      => 'Nobody needs a kicker, but...',
-    description => 'Usually the ingress of the article',
-    published   => "$now",
-    modified    => "$now",
+    language  => 'en',
+    url       => 'http://www.example.com/2016/08/17/some-article',
+    title     => 'Some title',
+    subtitle  => 'Usually the description/ingress of the article.',
+    kicker    => 'Nobody needs a kicker, but...',
+    published => "$now",
+    modified  => "$now",
 );
 
 $ia->add_lead_asset_image(
@@ -84,9 +83,8 @@ is( $dom->find( 'article > p' )->size, 2, 'Number of paragraphs is OK' );
 $dom = $dom->at( 'html > body > article' );
 
 is( $dom->at('header > h1')->text, 'Some title', 'Title is OK' );
-is( $dom->at('header > h2')->text, 'Got one?', 'Subtitle is OK' );
+is( $dom->at('header > h2')->text, 'Usually the description/ingress of the article.', 'Subtitle (ingress) is OK' );
 is( $dom->at('header > h3')->text, 'Nobody needs a kicker, but...', 'Kicker is OK' );
-is( $dom->at('header > p')->text, 'Usually the ingress of the article', 'Description/ingress is OK' );
 is( $dom->find('header > time')->[0]->attr('datetime'), "$now", 'Published timestamp is OK' );
 is( $dom->find('header > time')->[1]->attr('datetime'), "$now", 'Modified timestamp is OK' );
 is( $dom->at('header > figure > img')->attr('src'), 'http://www.example.com/lead_image.png', 'Lead asset source is OK' );
