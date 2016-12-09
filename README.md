@@ -22,9 +22,8 @@ external API are subject to change in upcoming releases, so use with care.
         language          => 'en',
         url               => 'http://www.example.com/2016/08/17/some-article',
         title             => 'Some title',
-        subtitle          => 'Got one?',
+        subtitle          => 'Usually the ingress of the article.',
         kicker            => 'Nobody needs a kicker, but...',
-        description       => 'Usually the ingress of the article',
         published         => "$now",
         modified          => "$now",
         auto_ad_placement => 0, # defaults to true
@@ -206,7 +205,7 @@ Tore Aursand <toreau@gmail.com>
 
 # COPYRIGHT
 
-Copyright 2016- Tore Aursand
+Copyright 2016 - Tore Aursand
 
 # LICENSE
 
