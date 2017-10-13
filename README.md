@@ -22,11 +22,12 @@ external API are subject to change in upcoming releases, so use with care.
         language          => 'en',
         url               => 'http://www.example.com/2016/08/17/some-article',
         title             => 'Some title',
-        subtitle          => 'Usually the ingress of the article.',
+        subtitle          => 'Got one?',
         kicker            => 'Nobody needs a kicker, but...',
         published         => "$now",
         modified          => "$now",
         auto_ad_placement => 0, # defaults to true
+        style             => 'MyStyleName',
     );
 
     $ia->add_author(
