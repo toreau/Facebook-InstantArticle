@@ -92,7 +92,13 @@ external API are subject to change in upcoming releases, so use with care.
       caption => 'Nice video, eh?',
   );
 
-  say $ia->to_string;
+  if ( $ia->is_valid ) {
+      say $ia->to_string;
+  }
+  else {
+      # There's probably something wrong with the Instant Article you
+      # tried to create.
+  }
 
 =cut
 
